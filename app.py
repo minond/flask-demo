@@ -1,9 +1,10 @@
-from flask import Flask
+import os
+import flask
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 @app.route("/")
 def hello_world():
     return "Hello, World!!"
 
-app.run(port=8000)
+app.run(port=os.environ.get("PORT", 8080))
